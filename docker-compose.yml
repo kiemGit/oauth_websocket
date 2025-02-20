@@ -1,0 +1,24 @@
+version: '3.8'
+
+services:
+  app_srv:
+    build:
+      context: ./ws_srv
+      dockerfile: Dockerfile
+    container_name: ws_srv
+    ports:
+      - "8003:8003"
+
+  app_outh:
+    build:
+      context: ./outh_srv
+      dockerfile: Dockerfile
+    container_name: outh_srv
+    ports:
+      - "4000:4000"
+
+  app_cln:
+    build:
+      context: ./ws_cln
+      dockerfile: Dockerfile
+    container_name: ws_cln
